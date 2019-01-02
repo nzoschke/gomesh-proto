@@ -8,4 +8,4 @@ git rm -rf .github/
 git add gen/
 git commit -m "gen ${GITHUB_SHA:0:7}"
 
-git push -f https://github.com/nzoschke/gomesh-interface.git ${GITHUB_REF}:${GITHUB_REF}-gen
+git push -f https://u:${GITHUB_TOKEN}@github.com/nzoschke/gomesh-interface.git ${GITHUB_REF}:${GITHUB_REF}-gen

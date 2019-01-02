@@ -1,4 +1,4 @@
-workflow "new workflow" {
+workflow "publish generated clients and servers" {
   on = "push"
   resolves = ["push-gen"]
 }
