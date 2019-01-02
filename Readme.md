@@ -1,14 +1,18 @@
 # GoMesh Protos
 
-| Repository                                  |
-|---------------------------------------------|
-| [Protocol Buffer Service Defintions][1]     |
-| [Generated Client and Server Interfaces][2] |
-| [gRPC Servers][3]                           |
+This repo contains protocol buffer service definitions for [GoMesh](https://github.com/nzoschke/gomesh). We keep these in their own repo to isolate API design and definitions from generated code. This facilitates a development flow of:
 
-[1]: https://github.com/nzoschke/gomesh
-[2]: https://github.com/nzoschke/gomesh-interface
-[3]: https://github.com/nzoschke/gomesh-proto
+1. Design APIs as .proto definitions ([gomesh-proto](https://github.com/nzoschke/gomesh-proto))
+2. Generate Go server interfaces ([gomesh-interface](https://github.com/nzoschke/gomesh-interface))
+3. Build gRPC services that satisfy the server interfaces ([gomesh](https://github.com/nzoschke/gomesh))
+
+## Motivation
+
+Building a reliable service oriented architecture (SOA) is easier than ever, once you learn the gRPC framework and ecosystem of tools that interoperate around Protocol Buffer service definitions.
+
+[GoMesh](https://github.com/nzoschke/gomesh) is an example SOA with all of the proto and gRPC services configured correctly and explaiend in depth. See the [gomesh/docs folder](https://github.com/nzoschke/gomesh/tree/master/docs) for detailed guides about service definitions, proxies, remote procedure calls, API gateways, data stores, observability, versioning and more.
+
+With this foundation you can skip over all the setup, and focus entirely on your business logic code.
 
 ## Quick Start
 
