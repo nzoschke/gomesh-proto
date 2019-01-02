@@ -162,12 +162,30 @@ $ prototool lint proto
 
 ### Publish generated clients and server interfaces
 
+Changes that pass linting and formatting checks are automatically published to [gomesh-interface](https://github.com/nzoschke/gomesh-interface) via a [GitHub Action](https://developer.github.com/actions/).
+
 ```shell
+$ git push github mybranch
+$ hub ci-status -v
+✔︎	gen     	https://github.com/nzoschke/gomesh-proto/runs/45713308
+✔︎	push-gen	https://github.com/nzoschke/gomesh-proto/runs/45713310
+```
+
+```shell
+$ git clone https://github.com/nzoschke/gomesh-interface.git
+$ cd gomesh-interface
+$ git log origin/mybranch
+commit bd344840ae485fe4b93581b81c8f06a598029476 (origin/master)
+Author: gen <gen@example.com>
+Date:   Wed Jan 2 20:32:07 2019 +0000
+
+    gen 03ca9d8
+...
 ```
 
 ## Docs
 
-Check out [the docs folder](docs/) where each component is explained in more detail.
+Check out [gomesh/docs folder](https://github.com/nzoschke/gomesh/tree/master/docs) where each component is explained in more detail.
 
 ## Contributing
 
