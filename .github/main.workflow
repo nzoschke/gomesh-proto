@@ -11,5 +11,5 @@ action "push-gen" {
   needs = ["gen"]
   uses = "./.github/action/gen"
   runs = ".github/push-gen.sh"
-  secrets = ["GITHUB_TOKEN"]
+  secrets = ["GITHUB_TOKEN", "PUSH_TOKEN"]
 }
