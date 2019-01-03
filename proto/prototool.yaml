@@ -43,7 +43,7 @@ generate:
 lint:
   rules:
     add:
-    #   - RPCS_HAVE_COMMENTS
+      - RPCS_HAVE_COMMENTS
     remove:
       - REQUEST_RESPONSE_TYPES_IN_SAME_FILE
       - REQUEST_RESPONSE_TYPES_UNIQUE
