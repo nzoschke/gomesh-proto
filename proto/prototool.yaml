@@ -9,7 +9,7 @@ generate:
     extra_modifiers:
       google/api/annotations.proto: google.golang.org/genproto/googleapis/api/annotations
       google/api/http.proto: google.golang.org/genproto/googleapis/api/annotations
-    import_path: github.com/nzoschke/gomesh-proto/proto
+    import_path: github.com/nzoschke/gomesh-interface/proto
 
   plugins:
     - file_suffix: pb
