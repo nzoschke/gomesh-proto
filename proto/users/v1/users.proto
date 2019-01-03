@@ -28,5 +28,6 @@ message GetRequest {
 
 message CreateRequest {
   string parent = 1;
-  User user = 2;
+  string user_id = 2;
+  User user = 3;
 }
