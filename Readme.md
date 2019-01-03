@@ -20,6 +20,7 @@ This project uses:
 
 - [Docker CE](https://www.docker.com/community-edition)
 - [GitHub Actions](https://developer.github.com/actions/)
+- [github/hub](https://github.com/github/hub)
 - [Go 1.11](https://golang.org/)
 - [lyft/protoc-gen-validate](https://github.com/lyft/protoc-gen-validate)
 - [protoc](https://github.com/protocolbuffers/protobuf)
