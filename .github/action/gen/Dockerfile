@@ -1,7 +1,7 @@
 FROM golang:1.11
 
 ARG PROTOC_VERSION=3.6.1
-ARG PROTOTOOL_VERSION=1.3.0
+ARG PROTOTOOL_VERSION=dev
 
 ARG MOCKERY_VERSION=ea265755d541b124de6bc248f7744eab9005fd33
 ARG PROTOC_GEN_GO_VERSION=1.2.0
@@ -15,9 +15,8 @@ RUN \
   apt-get install -y curl git nodejs && \
   rm -rf /var/lib/apt/lists/*
 
-RUN \
-  curl -sSL https://github.com/uber/prototool/releases/download/v$PROTOTOOL_VERSION/prototool-Linux-x86_64 -o /bin/prototool && \
-  chmod +x /bin/prototool
+RUN GO111MODULE=off go get -u github.com/myitcv/gobin
+RUN gobin github.com/uber/prototool/cmd/prototool@$PROTOTOOL_VERSION
 
 RUN \
   mkdir /tmp/prototool-bootstrap && \
