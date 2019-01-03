@@ -15,11 +15,11 @@ service Users {
 }
 
 message User {
-  string id = 1; // Output only
+  string id = 1;
   string parent = 2;
   string name = 3;
   string display_name = 4;
-  google.protobuf.Timestamp create_time = 5; // Output only
+  google.protobuf.Timestamp create_time = 5;
 }
 
 message GetRequest {
