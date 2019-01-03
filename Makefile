@@ -9,3 +9,7 @@ $(PBGOS): gen/go/%.pb.go: proto/prototool.yaml proto/%.proto proto_ext/prototool
 	docker run -v $(PWD):/github/workspace gen
 
 gen: $(PBGOS)
+
+lint:
+	prototool format -w proto
+	prototool lint proto
