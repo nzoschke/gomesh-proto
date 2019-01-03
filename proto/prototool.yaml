@@ -1,10 +1,4 @@
 ---
-protoc:
-  version: 3.6.1
-  includes:
-    - ../proto_ext
-    - ../proto_ext/third_party/googleapis
-
 create:
   packages:
     - directory: .
@@ -18,27 +12,33 @@ generate:
     import_path: github.com/nzoschke/gomesh-proto/proto
 
   plugins:
-    - name: ts
-      output: ../gen/js
-      flags: service=true
+    - file_suffix: pb
+      include_imports: true
+      include_source_info: true
+      name: descriptor_set
+      output: ../gen/pb
 
-    - name: js
-      output: ../gen/js
-      flags: binary,import_style=commonjs
-
-    - name: go
-      type: go
+    - flags: plugins=grpc
+      name: go
       output: ../gen/go
-      flags: plugins=grpc
-
-    - name: validate
       type: go
-      output: ../gen/go
-      flags: lang=go
+
+    - flags: binary,import_style=commonjs
+      name: js
+      output: ../gen/js
 
     - name: swagger
-      type: go
       output: ../gen/swagger
+      type: go
+
+    - flags: service=true
+      name: ts
+      output: ../gen/js
+
+    - flags: lang=go
+      name: validate
+      output: ../gen/go
+      type: go
 
 lint:
   rules:
@@ -47,3 +47,9 @@ lint:
     remove:
       - REQUEST_RESPONSE_TYPES_IN_SAME_FILE
       - REQUEST_RESPONSE_TYPES_UNIQUE
+
+protoc:
+  includes:
+    - ../proto_ext
+    - ../proto_ext/third_party/googleapis
+  version: 3.6.1
