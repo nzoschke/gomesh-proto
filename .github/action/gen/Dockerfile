@@ -43,7 +43,8 @@ RUN go get github.com/lyft/protoc-gen-validate && \
 RUN go get github.com/grpc-ecosystem/grpc-gateway/... && \
   cd /go/src/github.com/grpc-ecosystem/grpc-gateway && \
   git checkout v$PROTOC_GEN_SWAGGER_VERSION && \
-  go install ./protoc-gen-swagger
+  go install ./protoc-gen-swagger && \
+  go install ./protoc-gen-grpc-gateway
 
 RUN npm install -g ts-protoc-gen@$TS_PROTOC_GEN_VERSION
 

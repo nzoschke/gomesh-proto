@@ -23,6 +23,10 @@ generate:
       output: ../gen/go
       type: go
 
+    - name: grpc-gateway
+      output: ../gen/go
+      type: go
+
     - flags: binary,import_style=commonjs
       name: js
       output: ../gen/js
