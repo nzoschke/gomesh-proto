@@ -81,9 +81,6 @@ message Widget {
 }
 
 message GetRequest {
-  // Name
-  //
-  // Format "users/{user}/widgets/{widget}"
   string name = 1 [
     (validate.rules).string = {
       pattern: "^users/[a-z0-9._-]+/widgets/[a-z0-9._-]+$"
@@ -93,36 +90,23 @@ message GetRequest {
 }
 
 message CreateRequest {
-  // Parent
-  //
-  // Format "users/{user}"
   string parent = 1 [
     (validate.rules).string = {
       pattern: "^users/[a-z0-9._-]+$"
       max_bytes: 512
     }
   ];
-  // ID
   string id = 2 [
     (validate.rules).string = {
       pattern: "^[a-z0-9._-]+$"
       max_bytes: 512
     }
   ];
-  // Widget
-  //
-  // Required
   Widget widget = 3 [(validate.rules).message.required = true];
 }
 
 message UpdateRequest {
-  // Widget
-  //
-  // Required
   Widget widget = 1 [(validate.rules).message.required = true];
-  // Update Mask
-  //
-  // Required
   google.protobuf.FieldMask update_mask = 2 [(validate.rules).message.required = true];
 }
 
@@ -139,6 +123,7 @@ message ListRequest {
 message ListResponse {
   repeated Widget widgets = 1;
   string next_page_token = 2;
+  int32 total_size = 3;
 }
 
 message BatchGetRequest {
